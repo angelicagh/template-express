@@ -7,7 +7,7 @@
 import express from 'express'; //forma moderna de importar express
 import cors from 'cors'; //importar cors
 import mysql from 'mysql2/promise'; //1º importar mysql2 y 2º crear la conexion
-import dotenv from 'dotenv'; //importar variables de entorno (estan en archivo .env ¡OJO! siempre debe estar en la raiz del proyecto, NO dentro de src)
+import dotenv from 'dotenv'; //importar variables de entorno 
 dotenv.config();
 import bcrypt from 'bcrypt';//encriptar contraseña
 import jwt from 'jsonwebtoken';//verificar token
@@ -34,6 +34,18 @@ const getConnection = async () => {
     })
     return connection;
 }
+
+// para crear las variables de entorno creamos un archivo .env (¡OJO! siempre debe estar en la raiz del proyecto, NO dentro de src) e incluimos:
+/* # variables de entorno  (se obtienen de mysql workbench o aiven)
+DB_HOST=
+DB_USER=
+DB_PASSWORD=
+DB_NAME=
+DB_PORT=
+
+# generar y verificar token con jwt
+JWT_SECRET_KEY= */
+
 
 //ENDPOINTS (get, post, put, delete)
 server.metodoQueSea("url", async (req, res) => {
